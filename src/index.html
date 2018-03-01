@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <title>广东省精神卫生信息平台-医生端</title>
+  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <link rel="icon" type="image/x-icon" href="assets/icon/favicon.ico">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#4e8ef7">
+
+  <!-- add to homescreen for ios -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <!-- cordova app 需要 cordova.js -->
+  <script src="cordova.js"></script>
+
+  <!-- un-comment this code to enable service worker
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(() => console.log('service worker installed'))
+        .catch(err => console.error('Error', err));
+    }
+  </script>-->
+
+  <!-- main.css在构建完成后自动生成 -->
+  <link href="build/main.css" rel="stylesheet">
+
+</head>
+<body>
+
+  <!-- ionic根组件 -->
+  <ion-app></ion-app>
+
+  <!-- polyfills.js在构建完成后自动生成 -->
+  <script src="build/polyfills.js"></script>
+
+  <!-- vendor.js在构建完成后自动生成。包含所有node_modules中的依赖文件 -->
+  <script src="build/vendor.js"></script>
+
+  <!-- bundle.js在构建完成后自动生成。 -->
+  <script src="build/main.js"></script>
+
+</body>
+</html>

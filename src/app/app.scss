@@ -1,0 +1,227 @@
+// 应用全局样式
+::-webkit-scrollbar {
+  display: none !important;
+}
+
+.scroll {
+  height: 100%;
+}
+
+// 正文文字颜色
+.content {
+  color: #3e3c3c;
+}
+
+
+/* 自定义border样式 */
+
+.border {
+  border: 1px solid map-get($colors, 'slight');
+}
+
+.border-bottom {
+  border-bottom: 1px solid map-get($colors, 'slight');
+}
+
+.border-left {
+  border-left: 1px solid map-get($colors, 'slight');
+}
+
+.border-right {
+  border-right: 1px solid map-get($colors, 'slight');
+}
+
+.border-top {
+  border-top: 1px solid map-get($colors, 'slight');
+}
+
+.border-color-main {
+  border-color: map-get($colors, 'primary');
+}
+
+.border-color-white {
+  border-color: map-get($colors, 'white');
+}
+
+.border-weight {
+  border-width: 5px;
+}
+
+.border-none {
+  border: none;
+}
+
+.border-circle {
+  border-radius: 50%;
+}
+
+
+/* 可用于上下元素间隙 */
+
+.line-spe {
+  width: 100%;
+  height: 8px;
+  background-color: map-get($colors, 'slight');
+}
+
+
+/* 文本样式 */
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.paragraph {
+  text-indent: 2em;
+  line-height: 1.5em;
+}
+
+
+/*固定行文字*/
+
+p.text1 {
+  /*单行*/
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  -webkit-text-overflow: ellipsis;
+  -moz-text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+p.text2 {
+  /*多行*/
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  white-space: normal;
+}
+
+
+/*自定义checkbox icon*/
+
+.checkbox-icon-my {
+  color: #eee;
+  display: inline-block;
+}
+
+.checkbox-icon-my.checked:before {
+  background: map-get($colors, 'primary');
+  border-color: map-get($colors, 'primary');
+}
+
+.checkbox-icon-my.checked:after {
+  -webkit-transition: opacity 0.05s ease-in-out;
+  -moz-transition: opacity 0.05s ease-in-out;
+  transition: opacity 0.05s ease-in-out;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 30%;
+  left: 26%;
+  display: table;
+  width: 15px;
+  height: 10.33333px;
+  border: 3px solid #fff;
+  border-top: 0;
+  border-right: 0;
+  content: ' ';
+  opacity: 0;
+}
+
+
+/* 右下角三角 */
+
+.small-triangle {
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-left: 10px solid transparent;
+  border-bottom: 10px solid map-get($colors, 'primary');
+  position: absolute;
+  right: 3px;
+  bottom: 10px;
+}
+
+
+/* 顶部标题栏 */
+
+.toolbar-background {
+  background: map-get($colors, 'primary') !important;
+}
+
+.toolbar-title-ios {
+  overflow: visible;
+  text-align: center;
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  pointer-events: auto;
+}
+
+//返回按钮颜色
+.backbutton {
+  color: #FFFFFF;
+}
+
+.list-ios>.item-block:last-child,
+.list-ios>.item-wrapper:last-child .item-block {
+  border-bottom: 0px;
+}
+
+// 通用小标题
+.common-title {
+  border-bottom: 1px solid map-get($colors, 'light');
+  padding: 10px;
+  font-size: 16px;
+  .title {
+    display: inline-block;
+    padding-left: 10px;
+    border-left: 5px solid map-get($colors, 'primary');
+    font-weight: bold;
+  }
+  .more {
+    float: right;
+    color: map-get($colors, 'light');
+    margin-right: 5px;
+  }
+}
+
+
+/* 通用颜色 */
+
+.color-primary {
+  color: map-get($colors, 'primary');
+}
+
+.color-muted {
+  color: map-get($colors, 'muted');
+}
+
+.color-light {
+  color: map-get($colors, 'light');
+}
+
+.color-danger {
+  color: map-get($colors, 'danger');
+}
+
+
+/* 通用背景色 */
+
+.bg-light {
+  background-color: map-get($colors, 'light');
+}
+
+.bg-slight {
+  background-color: map-get($colors, 'slight');
+}

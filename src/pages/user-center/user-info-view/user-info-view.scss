@@ -1,0 +1,33 @@
+page-user-info-view {
+  .list {
+    margin: 0px;
+    padding-left: 16px;
+    .item:first-child {
+      border-top: none;
+    }
+    .item {
+      font-size: 14px;
+      border-bottom: 0.55px solid #c8c7cc;
+      padding-left: 0px;
+      .item-inner {
+        border-bottom: none;
+        .select {
+          .select-icon {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+  .last-bottom {
+    .item:last-child {
+      border-bottom: 0.55px solid #c8c7cc;
+    }
+  }
+  .save-info {
+    button {
+      background-color: #00BFD5;
+      color: white;
+    }
+  }
+}

@@ -1,0 +1,84 @@
+page-user-center {
+  .toolbar-background {
+    border-bottom: none;
+  }
+  .menu {
+    font-size: 50px;
+    color: #27a0f0;
+  }
+  .jiantou {
+    width: 20px;
+    float: right;
+    margin-top: 2px;
+  }
+  .list {
+    margin-bottom: 0px;
+    .item:first-child {
+      border-top: 0px;
+    }
+    .item {
+      border-bottom: 0.55px solid #C8C7CC;
+      padding-left: 0px;
+      .item-inner {
+        border-bottom: none;
+        padding-right: 0px;
+      }
+      span {
+        padding-top: 5px;
+        img {
+          width: 25px;
+          height: 25px;
+        }
+      }
+      .no-cert {
+        right: 30px;
+        position: relative;
+        img {
+          width: initial;
+          height: 15px;
+        }
+      }
+    }
+  }
+  .middarea {
+    p {
+      color: #242424;
+    }
+    img {
+      width: 56px;
+      height: 42px;
+    }
+  }
+  .grid {
+    padding-top: 30px;
+    padding-bottom: 10px;
+    background-color: #fff;
+    .col {
+      color: white;
+      .header-img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+      }
+      h4 {
+        img {
+          margin-left: 10px;
+          height: 12px;
+          position: relative;
+          top: 3px;
+        }
+      }
+    }
+  }
+  .maincorlor {
+    background-color: #27A0F0;
+  }
+  .item-ios [item-right],
+  .item-ios [item-end] {
+    margin-right: 30px;
+    font-size: 14px;
+  }
+  .list-ios[inset] {
+    margin: 0px;
+  }
+}

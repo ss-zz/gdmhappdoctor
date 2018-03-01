@@ -1,0 +1,62 @@
+page-baseinfo {
+  .avator {
+    width: 25px;
+    float: right;
+    margin-right: 50px;
+  }
+  .down-icon {
+    font-size: 30px;
+    color: #b1afaf;
+  }
+  .left {
+    width: 70px;
+    height: 100%;
+    float: left;
+    position: fixed;
+    top: 44px;
+    background-color: #eee;
+    .one-menu {
+      width: 50px;
+      background-color: map-get($colors, 'primary');
+      text-align: center;
+      border-radius: 50%;
+      height: 50px;
+      padding: 5px;
+      color: #fff;
+      margin-top: 10px;
+      margin-left: 5px;
+      margin-bottom: 20px;
+    }
+    .one-menu.disabled {
+      background-color: #b1afaf;
+    }
+    .one-menu.selected {
+      background-color: map-get($colors, 'danger');
+      ;
+    }
+  }
+  .right {
+    width: 100%;
+    padding-left: 70px;
+    .input-label {
+      width: 120px;
+      display: inline-block;
+      position: relative;
+    }
+    .input-text {
+      width: 100%;
+      border: none;
+      padding-right: 190px;
+    }
+    .big-button {
+      width: 50%;
+      margin-left: 25%;
+      margin-bottom: 10px;
+    }
+    .checkbox-wrap {
+      position: absolute;
+      right: 5px;
+      top: 13px;
+    }
+  }
+}

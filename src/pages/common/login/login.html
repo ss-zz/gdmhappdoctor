@@ -1,0 +1,32 @@
+<!-- 登录页面 -->
+<ion-content class="bg">
+
+  <div class="border-bottom">
+    <button ion-button small clear color="white" (click)="cancleLogin()">取消</button>
+  </div>
+
+  <ion-list>
+    <ion-item>
+      <ion-icon item-start name="phone-portrait"></ion-icon>
+      <ion-input tyle="tel" placeholder="请输入用户名" [(ngModel)]="params.userName" clearInput=true></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-icon item-start name="lock-outline"></ion-icon>
+      <ion-input type="password" placeholder="请输入密码" [(ngModel)]="params.passWord" clearInput=true></ion-input>
+    </ion-item>
+  </ion-list>
+  <div padding-horizontal>
+    <button ion-button full tappable (click)="login()">登&nbsp;录</button>
+  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col tappable>
+
+      </ion-col>
+      <ion-col tappable text-right (click)="openModalFindPassword()">
+        <button ion-button small clear color="white">忘记密码</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

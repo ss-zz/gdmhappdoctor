@@ -1,0 +1,367 @@
+<ion-header>
+
+  <ion-toolbar color="primary">
+    <ion-buttons start tappable (click)="back()">
+      <button ion-button icon-only>
+        返回
+      </button>
+    </ion-buttons>
+
+    <ion-title>个人信息完善</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only *ngIf="!isFromReg" (click)="save()">
+        保存
+      </button>
+      <button ion-button icon-only *ngIf="isFromReg" (click)="saveAndNext()">
+        <span *ngIf="step==maxStep">完成</span>
+        <span *ngIf="step!=maxStep">下一步</span>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+  <!-- 左侧菜单 -->
+  <div class="left">
+    <div class="one-menu" (click)="toStep(idx + 1, true)" [ngClass]="{'disabled': isFromReg, 'selected': step==idx+1}" *ngFor="let item of titles;index as idx;">
+      {{item}}
+      <ion-icon name="ios-arrow-down-outline" class="down-icon" *ngIf="idx+1!=maxStep && isFromReg"></ion-icon>
+    </div>
+  </div>
+  <!-- 右侧表单 -->
+  <div class="right">
+
+    <!-- 步骤1 -->
+    <div class="onezone" *ngIf="step==1">
+      <button ion-button icon-left outline class="big-button">
+        <ion-icon name="ios-camera-outline"></ion-icon>识别证件</button>
+      <ion-list>
+
+        <ion-item detail-push>
+          <span class="input-label">头像
+          </span>
+          <img class="avator" src="assets/img/rentou.png" />
+        </ion-item>
+
+        <ion-item>
+          <span class="input-label">姓
+            <span class="color-danger">*</span>
+          </span>
+          <input class="input-text" type="text" placeholder="确保与证件保持一致" />
+          <div class="checkbox-wrap">
+            <input type="checkbox" id="input-xing" />
+            <label for="input-xing">不适用</label>
+          </div>
+        </ion-item>
+
+        <ion-item>
+          <span class="input-label">名
+            <span class="color-danger">*</span>
+          </span>
+          <input class="input-text" type="text" placeholder="确保与证件保持一致" />
+          <div class="checkbox-wrap">
+            <input type="checkbox" id="input-ming" />
+            <label for="input-ming">不适用</label>
+          </div>
+        </ion-item>
+
+        <ion-item>
+          <span class="input-label">别名或曾用名</span>
+          <input class="input-text" type="text" placeholder="请输入别名或曾用名" />
+          <div class="checkbox-wrap">
+            <input type="checkbox" id="input-bieming" />
+            <label for="input-bieming">不适用</label>
+          </div>
+        </ion-item>
+
+        <ion-item>
+          <span class="input-label">中文名</span>
+          <input class="input-text" type="text" placeholder="请输入中文名" />
+          <div class="checkbox-wrap">
+            <input type="checkbox" id="input-zhongwenming" />
+            <label for="input-zhongwenming">不适用</label>
+          </div>
+        </ion-item>
+
+        <ion-item detail-push>
+          <ion-label>性别</ion-label>
+          <ion-select>
+            <ion-option>男</ion-option>
+            <ion-option>女</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item detail-push>
+          <ion-label>国籍</ion-label>
+          <ion-select>
+            <ion-option>中国</ion-option>
+            <ion-option>其它</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item detail-push>
+          <span class="input-label">出生年月</span>
+          <input class="input-text" type="date" placeholder="请选择" />
+        </ion-item>
+
+        <ion-item detail-push>
+          <ion-label>宗教</ion-label>
+          <ion-select>
+            <ion-option>伊斯兰教</ion-option>
+            <ion-option>其它</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item detail-push>
+          <ion-label>汉语水平</ion-label>
+          <ion-select>
+            <ion-option>无</ion-option>
+            <ion-option>初级</ion-option>
+            <ion-option>中级</ion-option>
+            <ion-option>高级</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <span class="input-label">电子邮箱</span>
+          <input class="input-text" type="text" placeholder="请输入电子邮箱" />
+        </ion-item>
+
+        <ion-item>
+          <span class="input-label">在中国工作电话</span>
+          <input class="input-text" type="text" placeholder="请输入电话" />
+        </ion-item>
+
+        <ion-item detail-push>
+          <ion-label>血型</ion-label>
+          <ion-select>
+            <ion-option>A</ion-option>
+            <ion-option>B</ion-option>
+            <ion-option>AB</ion-option>
+            <ion-option>O</ion-option>
+            <ion-option>其它</ion-option>
+          </ion-select>
+        </ion-item>
+
+      </ion-list>
+    </div>
+
+    <!-- 步骤2 -->
+    <div class="onezone" *ngIf="step==2">
+
+      <ion-list>
+
+        <ion-item detail-push>
+          <ion-label>证件种类</ion-label>
+          <ion-select>
+            <ion-option>护照</ion-option>
+            <ion-option>签证</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <span class="input-label">证件号码
+            <span class="color-danger">*</span>
+          </span>
+          <input class="input-text" type="text" placeholder="请输入证件号码" />
+        </ion-item>
+
+        <ion-item>
+          <ion-label>签发国家
+            <span class="color-danger">*</span>
+          </ion-label>
+          <ion-select>
+            <ion-option>中国</ion-option>
+            <ion-option>其它</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <span class="input-label">签发地点
+            <span class="color-danger">*</span>
+          </span>
+          <input class="input-text" type="text" placeholder="请输入签发地点" />
+        </ion-item>
+
+        <ion-item>
+          <span class="input-label">签发机关
+            <span class="color-danger">*</span>
+          </span>
+          <input class="input-text" type="text" placeholder="请输入签发机关" />
+        </ion-item>
+
+        <ion-item detail-push>
+          <span class="input-label">上传证件
+            <span class="color-danger">*</span>
+          </span>
+          <button>点击上传</button>
+        </ion-item>
+
+        <ion-item detail-push>
+          <span class="input-label">签发日期
+            <span class="color-danger">*</span>
+          </span>
+          <input class="input-text" type="date" placeholder="请选择" />
+        </ion-item>
+
+        <ion-item detail-push>
+          <span class="input-label">失效日期
+            <span class="color-danger">*</span>
+          </span>
+          <input class="input-text" type="date" placeholder="请选择" />
+        </ion-item>
+
+      </ion-list>
+
+    </div>
+
+    <!-- 步骤3 -->
+    <div class="onezone" *ngIf="step==3">
+
+      <ion-list>
+
+        <ion-item-divider>
+          现家庭住址
+        </ion-item-divider>
+
+        <ion-item>
+          <ion-label>国家或地区</ion-label>
+          <input class="input-text" type="text" placeholder="请输入国家或地区" />
+        </ion-item>
+        <ion-item>
+          <ion-label>省份</ion-label>
+          <input class="input-text" type="text" placeholder="请输入省份" />
+        </ion-item>
+        <ion-item>
+          <ion-label>城市</ion-label>
+          <input class="input-text" type="text" placeholder="请输入城市" />
+        </ion-item>
+        <ion-item>
+          <ion-label>街道及门牌号</ion-label>
+          <input class="input-text" type="text" placeholder="请输入街道及门牌号" />
+        </ion-item>
+        <ion-item no-lines>
+          <ion-label>邮编</ion-label>
+          <input class="input-text" type="text" placeholder="请输入邮编" />
+        </ion-item>
+
+        <ion-item-divider>
+          家庭成员
+          <button ion-button outline item-end>
+            <ion-icon name="add"></ion-icon>
+            添加
+          </button>
+        </ion-item-divider>
+
+      </ion-list>
+
+    </div>
+
+    <!-- 步骤4 -->
+    <div class="onezone" *ngIf="step==4">
+
+      <ion-list>
+
+        <ion-item-divider>
+          教育经历
+          <button ion-button outline item-end>
+            <ion-icon name="add"></ion-icon>
+            添加
+          </button>
+        </ion-item-divider>
+
+      </ion-list>
+
+    </div>
+
+    <!-- 步骤5 -->
+    <div class="onezone" *ngIf="step==5">
+
+      <ion-list>
+
+        <ion-item-divider>
+          工作信息
+        </ion-item-divider>
+
+        <ion-item no-lines>
+          <ion-label>当前职业
+            <span class="color-danger">*</span>
+          </ion-label>
+          <ion-select>
+            <ion-option>商人</ion-option>
+            <ion-option>议员</ion-option>
+            <ion-option>其它</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item-divider>
+          工作经历
+          <button ion-button outline item-end>
+            <ion-icon name="add"></ion-icon>
+            添加
+          </button>
+        </ion-item-divider>
+
+      </ion-list>
+
+    </div>
+
+    <!-- 步骤6 -->
+    <div class="onezone" *ngIf="step==6">
+
+      <ion-list>
+
+        <ion-item-divider>
+          健康履历
+          <button ion-button outline item-end>
+            <ion-icon name="add"></ion-icon>
+            添加
+          </button>
+        </ion-item-divider>
+
+      </ion-list>
+
+    </div>
+
+    <!-- 步骤7 -->
+    <div class="onezone" *ngIf="step==7">
+
+      <ion-list>
+
+        <ion-item-divider>
+          旅行信息
+          <button ion-button outline item-end>
+            <ion-icon name="add"></ion-icon>
+            添加
+          </button>
+        </ion-item-divider>
+
+      </ion-list>
+
+    </div>
+
+    <!-- 步骤8 -->
+    <div class="onezone" *ngIf="step==8">
+
+      <ion-list>
+
+        <ion-item-divider>
+          附件
+          <button ion-button outline item-end>
+            <ion-icon name="add"></ion-icon>
+            添加
+          </button>
+        </ion-item-divider>
+
+
+      </ion-list>
+
+    </div>
+
+
+  </div>
+
+</ion-content>

@@ -1,0 +1,11 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>意见反馈</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-textarea class="border" placeholder="欢迎您对我们提出宝贵的建议或意见！" rows=10 [(ngModel)]="params.content"></ion-textarea>
+  <button margin-top ion-button block tappable (click)="save()">提交</button>
+</ion-content>

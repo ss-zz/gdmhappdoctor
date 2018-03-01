@@ -1,0 +1,43 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>编辑资料</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <button (click)="takePhoto()" ion-item>
+      <ion-label>头像</ion-label>
+      <ion-avatar item-end>
+        <img *ngIf="imgavter" src="{{imgavter}}">
+        <img *ngIf="!imgavter" src="assets/img/usercenter/avater.png">
+      </ion-avatar>
+    </button>
+    <button ion-item>
+      <ion-label>真实姓名</ion-label>
+      <ion-input type="text" text-right [(ngModel)]="userinfo.nickName"></ion-input>
+    </button>
+  </ion-list>
+  <div class="line-spe"></div>
+  <ion-list class="last-bottom">
+    <ion-item tappable (click)="sexActionSheet()">
+      <h2>性　别
+        <span float-right>{{userinfo.sex}}</span>
+      </h2>
+    </ion-item>
+    <button ion-item>
+      <ion-label>出生日期</ion-label>
+      <ion-datetime doneText="确定" cancelText="取消" displayFormat="YYYY-MM-DD" pickerFormat="YYYY-MM-DD" [(ngModel)]="userinfo.birthDate"></ion-datetime>
+    </button>
+    <button ion-item>
+      <ion-label>手机号码</ion-label>
+      <ion-input type="text" readonly=false text-right [(ngModel)]="userinfo.telphone"></ion-input>
+    </button>
+  </ion-list>
+  <div padding class="save-info" tappable (click)="save()">
+    <button type="submit" ion-button block>保存</button>
+  </div>
+</ion-content>
