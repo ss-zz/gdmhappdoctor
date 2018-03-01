@@ -7,7 +7,7 @@ $app-direction: ltr;
 @import "ionic.globals";
 // 公共变量。可覆盖值参考：http://ionicframework.com/docs/theming/overriding-ionic-variables/
 // 颜色变量
-$colors: ( primary: #488aff, secondary: #32db64, danger: #f53d3d, light: #c8c7cc, slight: #eeedf1, dark: #222, warning: #8a6d3b, info: #31708f, success: #3c763d, muted: #777, yellow: #e66b14, white: #fff, );
+$colors: ( primary: #30c8a9, secondary: #32db64, danger: #f53d3d, light: #c8c7cc, slight: #eeedf1, dark: #222, warning: #8a6d3b, info: #31708f, success: #3c763d, muted: #777, yellow: #e66b14, white: #fff, );
 // 字体大小变量
 $font-size: ( default: 14px, small: 12px, big: 16px, );
 // app主题
@@ -17,3 +17,6 @@ $font-size: ( default: 14px, small: 12px, big: 16px, );
 // 字体文件
 @import "roboto";
 @import "noto-sans";
+// 覆盖默认配置
+$searchbar-ios-background-color: #fff; // 查询框背景色
+$toolbar-ios-button-color: #fff; // 工具栏按钮颜色

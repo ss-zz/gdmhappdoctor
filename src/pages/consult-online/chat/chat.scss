@@ -1,0 +1,69 @@
+page-chat {
+  .chat-item {
+    width: 100%;
+    float: left;
+    margin-top: 10px;
+    .chat-avator {
+      float: left;
+      width: 50px;
+      margin: 0px 10px;
+      img {
+        width: 100%;
+      }
+    }
+    .chat-content {
+      margin-left: 100px;
+      margin-right: 100px;
+      position: relative;
+      padding: 5px;
+      border-radius: 5px;
+      background-color: map-get($map: $colors, $key: 'primary');
+      color: #fff;
+    }
+    .chat-content:after {
+      content: " ";
+      width: 0;
+      height: 0;
+      position: absolute;
+      top: 10px;
+    }
+  }
+  .chat-item.other {
+    .chat-content:after {
+      left: -10px;
+      border-top: 5px solid transparent;
+      border-right: 10px solid map-get($map: $colors, $key: 'primary');
+      border-bottom: 5px solid transparent;
+    }
+  }
+  .chat-item.myself {
+    .chat-avator {
+      float: right;
+    }
+    .chat-content {
+      background-color: map-get($map: $colors, $key: 'danger');
+    }
+    .chat-content:after {
+      right: -10px;
+      border-top: 5px solid transparent;
+      border-left: 10px solid map-get($map: $colors, $key: 'danger');
+      border-bottom: 5px solid transparent;
+    }
+  }
+  .message-input {
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    padding-left: 10px;
+  }
+  ion-searchbar {
+    .searchbar-search-icon {
+      display: none;
+    }
+  }
+  .toolbar .searchbar-ios .searchbar-input {
+    background: #fff;
+    padding-left: 10px;
+  }
+}

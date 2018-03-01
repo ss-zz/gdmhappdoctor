@@ -9,4 +9,30 @@
 
 <ion-content padding>
 
+  <ion-segment [(ngModel)]="type">
+    <ion-segment-button value="1">
+      村居直报
+    </ion-segment-button>
+    <ion-segment-button value="2">
+      服务患者
+    </ion-segment-button>
+  </ion-segment>
+
+  <div [ngSwitch]="type">
+    <ion-list *ngSwitchCase="'1'">
+      <ion-item detail-push *ngFor="let item of itemsType1" [navPush]="'ChatPage'" [navParams]="{title: item.name}">
+        {{item.name}} {{item.desc}}
+        <h2>{{item.address}}</h2>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'2'">
+      <ion-item detail-push *ngFor="let item of itemsType2" [navPush]="'ChatPage'" [navParams]="{title: item.name}">
+        {{item.name}} {{item.desc}}
+        <h2>{{item.address}}</h2>
+      </ion-item>
+    </ion-list>
+  </div>
+
+
 </ion-content>

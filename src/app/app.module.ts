@@ -47,7 +47,6 @@ import { ImgService } from "../providers/ImgService";
 
 // 业务模块/组件
 import { UserServiceProvider } from '../providers/biz/user-service';
-import { MyService } from '../providers/biz/my-service'
 
 @NgModule({
   declarations: [// 组件声明
@@ -116,7 +115,6 @@ import { MyService } from '../providers/biz/my-service'
 
     // 业务服务
     UserServiceProvider,
-    MyService
   ]
 })
 export class AppModule {

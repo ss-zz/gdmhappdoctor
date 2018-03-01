@@ -1,0 +1,37 @@
+<!--
+  聊天页面
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{title}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+  <div *ngFor="let item of items" class="chat-item" [ngClass]="{myself: item.myself, other: !item.myself}">
+    <div class="chat-avator">
+      <img *ngIf="item.myself" src="assets/img/header_1.png" />
+      <img *ngIf="!item.myself" src="assets/img/header_2.png" />
+    </div>
+    <div class="chat-content">
+      {{item.content}}
+    </div>
+  </div>
+
+  <ion-footer>
+    <ion-toolbar>
+      <ion-searchbar type="text" placeholder="请输入发送内容">
+      </ion-searchbar>
+      <ion-buttons end>
+        <button ion-button icon-right>
+          发送
+          <ion-icon name="send"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-footer>
+
+</ion-content>

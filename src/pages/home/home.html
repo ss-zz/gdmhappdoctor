@@ -1,85 +1,50 @@
 <ion-content class="bg-slight">
 
-  <div class="languages">
-    <div class="desc" (click)="showLanguages=!showLanguages">语种&gt;</div>
-    <div class="items-wrap" *ngIf="showLanguages">
-      <div class="oneitem">
-        <img src="assets/img/country/guoqi.png" />中</div>
-      <div class="oneitem">
-        <img src="assets/img/country/yingguo.png" />英</div>
-      <div class="oneitem">
-        <img src="assets/img/country/riben.png" />日</div>
-      <div class="oneitem">
-        <img src="assets/img/country/hanguo1.png" />韩</div>
-      <div class="oneitem">
-        <img src="assets/img/country/deguo.png" />德</div>
-      <div class="oneitem">
-        <img src="assets/img/country/eluosi.png" />俄</div>
+  <div class="btn-setting">
+    <button ion-button icon-only clear>
+      <ion-icon name="ios-settings"></ion-icon>
+    </button>
+  </div>
+  <img src="assets/img/bg/home.jpeg" />
+
+  <ion-searchbar [(ngModel)]="searchParams" [showCancelButton]="true" placeholder="请输入精神卫生相关知识" cancelButtonText="取消">
+  </ion-searchbar>
+
+  <h1 margin-left>随访提醒</h1>
+  <div class="row follow-items">
+    <div class="col follow-item bg-1" text-center>
+      预约随访
+      <br/> 888
+    </div>
+    <div class="col follow-item bg-2" text-center>
+      预警随访
+      <br/> 888
+    </div>
+    <div class="col follow-item bg-3" text-center>
+      逾期随访
+      <br/> 888
+    </div>
+    <div class="col follow-item bg-4" text-center>
+      待确认随访
+      <br/> 888
     </div>
   </div>
 
-  <ion-grid class="menu-bg">
-    <ion-row>
-      <ion-col col-3 text-center tappable [navPush]="'ModuleDescPage'">
-        <ion-icon class="menu" name="ios-apps-outline"></ion-icon>
-        <p>功能介绍</p>
-        <div class="menu-speline"></div>
-      </ion-col>
-      <ion-col col-3 text-center tappable [navPush]="'BizProcessPage'">
-        <ion-icon class="menu" name="ios-cafe-outline"></ion-icon>
-        <p>业务办理</p>
-        <div class="menu-speline"></div>
-      </ion-col>
-      <ion-col col-3 text-center tappable [navPush]="'GuidesPage'">
-        <ion-icon class="menu" name="ios-compass-outline"></ion-icon>
-        <p>操作指南</p>
-        <div class="menu-speline"></div>
-      </ion-col>
-      <ion-col col-3 text-center tappable [navPush]="'LawsPage'">
-        <ion-icon class="menu" name="ios-book-outline"></ion-icon>
-        <p>法律法规</p>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col col-3 text-center tappable [navPush]="'NoticesPage'">
-        <ion-icon class="menu" name="ios-megaphone-outline"></ion-icon>
-        <p>通知公告</p>
-        <div class="menu-speline"></div>
-      </ion-col>
-      <ion-col col-3 text-center tappable [navPush]="'WarningsPage'">
-        <ion-icon class="menu" name="ios-warning-outline"></ion-icon>
-        <p>风险预警</p>
-        <div class="menu-speline"></div>
-      </ion-col>
-      <ion-col col-3 text-center tappable [navPush]="'DownloadZonePage'">
-        <ion-icon class="menu" name="ios-cloud-download-outline"></ion-icon>
-        <p>下载专区</p>
-        <div class="menu-speline"></div>
-      </ion-col>
-      <ion-col col-3 text-center tappable [navPush]="'AddOtherPage'">
-        <ion-icon class="menu" name="ios-add-circle-outline"></ion-icon>
-        <p>添加其他</p>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-
-  <ion-list class="mid-list">
-    <ion-item detail-push no-lines>
-      <ion-icon item-start>
-        <img src="assets/img/xin.png" />
-      </ion-icon>
-      您的体检结果已发布
-      <span class="color-muted" margin-left>2小时前</span>
-    </ion-item>
-    <ion-item detail-push no-lines>
-      <ion-icon item-start>
-        <img src="assets/img/xin.png" />
-      </ion-icon>
-      您的体检结果已发布
-      <span class="color-muted" margin-left>2小时前</span>
-    </ion-item>
-  </ion-list>
-
-  <img src="assets/img/bg/three.png" />
+  <div class="row" margin-top>
+    <div class="col" text-center>
+      在线咨询提醒
+      <div class=" alert-item">
+        在线咨询
+        <br/> 888
+      </div>
+    </div>
+    <div class="col" text-center>
+      监护记录提醒
+      <div class="alert-item">
+        监护记录
+        <br/> 888
+      </div>
+    </div>
+  </div>
 
 </ion-content>

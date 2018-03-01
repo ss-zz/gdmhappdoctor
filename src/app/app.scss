@@ -7,9 +7,13 @@
   height: 100%;
 }
 
+.row{
+  background-color: #fff;
+}
+
 // 正文文字颜色
 .content {
-  color: #3e3c3c;
+  color: map-get($colors, 'primary');
 }
 
 
