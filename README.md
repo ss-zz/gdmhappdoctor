@@ -35,8 +35,8 @@
 
 	安装完nodejs之后可使用npm命令。
 
-* `npm init` 生成package.json文件（用于初始化并生成包管理文件package.json）
-* `npm install` 安装当前目录中package.json文件中所有依赖包
+* `npm init` 生成package.json文件(用于初始化并生成包管理文件package.json)
+* `npm install` 安装当前目录中package.json文件中所有依赖包
 * `npm install name` 安装名称为name的包到当前文件夹下node_modules目录中
 * `npm install name@version` 安装名称为name、版本为version的包到当前文件夹下node_modules目录中
 * `npm install name -g` 安装名称为name的包到全局
@@ -155,14 +155,14 @@
 config.xml          app配置文件 
 ionic.config.json  --
 package-lock.json  --
-packge.json        依赖模块文件。类似maven的pom.xml文件。
+packge.json        依赖模块文件。类似maven的pom.xml文件
 
 ```
 
 # 开发规范
 
-* ts、scss、html文件缩进统一为2个空格。
-* 代码文件编写完成之后请务必格式化文件。
+* ts、scss、html文件缩进统一为2个空格
+* 代码文件编写完成之后请务必格式化文件
 * ts文件、方法必须添加注释
 * 页面、组件、指令、服务文件要规范，可使用`ionic g`命令生成，然后根据需要移动到对应的目录中
 * 严格按照目录结构说明中的目录描述创建对应文件
