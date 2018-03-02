@@ -83,7 +83,6 @@ export class UserInfoViewPage {
     this.imgSer.upload.error = (err) => {
       this.nativeService.showToast('上传失败');
     };
-    this.imgSer.showPicActionSheet();
   }
 
   // 选择性别
