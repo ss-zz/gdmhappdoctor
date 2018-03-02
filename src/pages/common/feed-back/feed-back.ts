@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, IonicPage } from 'ionic-angular';
 import { UserServiceProvider } from "../../../providers/biz/user-service";
 import { NativeService } from "../../../providers/NativeService";
+import { ImgService } from '../../../providers/ImgService';
 
 /**
  * 意见反馈
@@ -12,19 +13,37 @@ import { NativeService } from "../../../providers/NativeService";
   templateUrl: 'feed-back.html',
 })
 export class FeedBackPage {
-  params = { content: "", title: "" };
-  constructor(public navCtrl: NavController, public navParams: NavParams, private userService: UserServiceProvider, private nativeService: NativeService, ) {
+
+  // 页面参数
+  params = {
+    content: "", imgs: [
+      { src: 'assets/img/bg/home.jpeg' },
+      { src: 'assets/img/bg/home.jpeg' },
+      { src: 'assets/img/bg/home.jpeg' },
+      { src: 'assets/img/bg/home.jpeg' },
+    ]
+  };
+
+  constructor(private userService: UserServiceProvider, private nativeService: NativeService, private imgService: ImgService) {
   }
 
-  ionViewDidLoad() {
-  }
-  save() {
-    console.log(this.params);
-
+  // 提交
+  submit() {
     this.userService.feedback(this.params).subscribe(data => {
       this.nativeService.showToast('意见反馈成功');
-      this.navCtrl.pop();
     })
+  }
+
+  // 添加图片
+  addImg() {
+    this.imgService.selectPhoto().then((imgData: any) => {
+      this.params.imgs.push({ src: imgData });
+    })
+  }
+
+  // 移除图片
+  removeImg(idx) {
+
   }
 
 }

@@ -14,17 +14,6 @@ export class ImgService {
   // token 信息
   private token;
 
-  // 调用相机时传入的参数
-  private cameraOpt = {
-    quality: 50,
-    destinationType: 1, // Camera.DestinationType.FILE_URI,
-    sourceType: 1, // Camera.PictureSourceType.CAMERA,
-    encodingType: 0, // Camera.EncodingType.JPEG,
-    mediaType: 0, // Camera.MediaType.PICTURE,
-    allowEdit: true,
-    correctOrientation: true
-  };
-
   // 用户头像参数
   upload: any = {
     url: '',// 接收图片的url
@@ -46,45 +35,59 @@ export class ImgService {
     private nativeService: NativeService) {
   }
 
-  // 显示照片来源选择
-  showPicActionSheet() {
-    this.token = this.globalData.token;
-    this.upload.headers = {
-      'access-token': this.token
-    };
-    this.useASComponent();
+  // 选择照片
+  selectPhoto() {
+    return this.useASComponent();
   }
 
   // 使用ionic中的ActionSheet组件
   private useASComponent() {
-    let actionSheet = this.actionSheetCtrl.create({
-      title: '选择',
-      buttons: [
-        {
-          text: '拍照',
-          handler: () => this.startCamera()
-        },
-        {
-          text: '从相册选择',
-          handler: () => this.openImgPicker()
-        },
-        {
-          text: '取消',
-          role: 'cancel',
-          handler: () => { }
-        }
-      ]
-    });
-    actionSheet.present();
+    return new Promise<Object>((resolve, reject) => {
+      let actionSheet = this.actionSheetCtrl.create({
+        title: '选择',
+        buttons: [
+          {
+            text: '拍照',
+            handler: () => {
+              this.startCamera()
+            }
+          },
+          {
+            text: '从相册选择',
+            handler: () => {
+              this.openImgPicker()
+            }
+          },
+          {
+            text: '取消',
+            role: 'cancel',
+            handler: () => { }
+          }
+        ]
+      });
+      actionSheet.present();
+    })
   }
 
   // 启动拍照功能
   private startCamera() {
-    this.Camera.getPicture(this.cameraOpt).then((imageData) => {
-      this.uploadImg(imageData);
-    }, (err) => {
-      this.nativeService.showToast("启动相机失败");
-    });
+    let options = {
+      quality: 50,
+      destinationType: this.Camera.DestinationType.FILE_URI,
+      sourceType: this.Camera.PictureSourceType.CAMERA,
+      encodingType: this.Camera.EncodingType.JPEG,
+      mediaType: this.Camera.MediaType.PICTURE,
+      allowEdit: true,
+      correctOrientation: true
+    };
+    return new Promise<Object>((resolve, reject) => {
+      this.Camera.getPicture(options).then((imageData) => {
+        resolve(imageData);
+      }, (err) => {
+        this.nativeService.showToast("启动相机失败");
+        reject();
+      });
+    })
   }
 
   // 打开手机相册
@@ -92,21 +95,26 @@ export class ImgService {
     var options = {
       quality: 50,
       destinationType: this.Camera.DestinationType.FILE_URI,
-      sourceType: 0,
+      sourceType: this.Camera.PictureSourceType.PHOTOLIBRARY,
       encodingType: this.Camera.EncodingType.JPEG,
       mediaType: this.Camera.MediaType.PICTURE,
       allowEdit: true,
       correctOrientation: true
     }
-    this.Camera.getPicture(options).then((imageData) => {
-      this.uploadImg(imageData);
-    }, err => {
-      this.nativeService.showToast("打开相册失败");
-    });
+    return new Promise<Object>((resolve, reject) => {
+      this.Camera.getPicture(options).then((imageData) => {
+        resolve(imageData);
+      }, err => {
+        this.nativeService.showToast("打开相册失败");
+        reject();
+      });
+
+    })
+
   }
 
   // 上传图片
-  private uploadImg(path: string) {
+  public uploadImg(path: string) {
     if (!path) {
       return;
     }

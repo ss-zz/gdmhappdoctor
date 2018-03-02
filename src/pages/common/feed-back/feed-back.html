@@ -4,8 +4,15 @@
   </ion-navbar>
 </ion-header>
 
-
-<ion-content padding>
+<ion-content>
   <ion-textarea class="border" placeholder="欢迎您对我们提出宝贵的建议或意见！" rows=10 [(ngModel)]="params.content"></ion-textarea>
+  <div class="img-items">
+    <div class="img-item" *ngFor="let img of params.imgs">
+      <ion-img width="80" height="80" [src]="img.src"></ion-img>
+    </div>
+    <div class="img-item" (click)="addImg()">
+      <ion-icon name="ios-add-outline" color="primary"></ion-icon>
+    </div>
+  </div>
   <button margin-top ion-button block tappable (click)="save()">提交</button>
 </ion-content>

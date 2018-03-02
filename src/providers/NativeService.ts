@@ -11,12 +11,10 @@ import {
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AppVersion } from '@ionic-native/app-version';
-import { Camera, CameraOptions } from '@ionic-native/camera';
 import { Toast } from '@ionic-native/toast';
 import { File, FileEntry } from '@ionic-native/file';
 import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
-import { ImagePicker } from '@ionic-native/image-picker';
 import { Network } from '@ionic-native/network';
 import { AppMinimize } from "@ionic-native/app-minimize";
 
@@ -50,12 +48,10 @@ export class NativeService {
     private statusBar: StatusBar,
     private splashScreen: SplashScreen,
     private appVersion: AppVersion,
-    private camera: Camera,
     private toast: Toast,
     private transfer: FileTransfer,
     private file: File,
     private inAppBrowser: InAppBrowser,
-    private imagePicker: ImagePicker,
     private network: Network,
     private appMinimize: AppMinimize,
     private loadingCtrl: LoadingController,

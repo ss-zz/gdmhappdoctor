@@ -1,0 +1,81 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>离线数据</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content refreshingSpinner="circles" pullingText="下拉刷新..." refreshingText="正在刷新数据...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-list>
+    <ion-item *ngIf="!showMulitTools">
+      <ion-label>全部数据</ion-label>
+      <div item-end>
+        <button ion-button color="primary" (click)="showMulitTools=true">
+          <ion-icon name="ios-options-outline"></ion-icon>
+          多选
+        </button>
+      </div>
+    </ion-item>
+    <ion-item *ngIf="showMulitTools">
+      <div item-start>
+        <ion-checkbox></ion-checkbox>
+      </div>
+      <ion-label>全选</ion-label>
+      <div item-end class="btn-done" (click)="showMulitTools=false">
+        完成
+      </div>
+    </ion-item>
+    <ion-item-sliding *ngFor="let item of items">
+      <ion-item detail-push [navPush]="'DataOfflineDetailPage'" [navParams]="{item: item}">
+        <div item-start *ngIf="showMulitTools">
+          <ion-checkbox></ion-checkbox>
+        </div>
+        <ion-label>{{item.name}}</ion-label>
+        <div item-content>
+          {{item.time | date: 'yyyy-MM-dd HH:mm:ss'}}
+        </div>
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button color="primary">
+          <ion-icon name="ios-cloud-upload-outline"></ion-icon>
+          上传
+        </button>
+        <button ion-button color="danger">
+          <ion-icon name="ios-remove-circle-outline"></ion-icon>
+          删除
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <div *ngIf="!hasmore" text-center margin-top class="info-bottom">没有更多</div>
+  <ion-infinite-scroll (ionInfinite)="$event.waitFor(doInfinite())" *ngIf="hasmore">
+    <ion-infinite-scroll-content loadingText="正在拼命加载...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>
+
+<ion-footer *ngIf="showMulitTools">
+  <div class="row">
+    <div class="col">
+      <button ion-button color="primary" full>
+        <ion-icon name="ios-cloud-upload-outline"></ion-icon>
+        上传
+      </button>
+    </div>
+    <div class="col">
+      <button ion-button color="danger" full>
+        <ion-icon name="ios-remove-circle-outline"></ion-icon>
+        删除
+      </button>
+    </div>
+  </div>
+</ion-footer>

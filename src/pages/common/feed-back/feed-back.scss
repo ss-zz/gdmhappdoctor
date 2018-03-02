@@ -1,5 +1,14 @@
 page-feed-back {
-    textarea{
-        width: 100%;
+  textarea {
+    width: 100%;
+  }
+  .img-items {
+    .img-item {
+      width: 100px;
+      height: 100px;
+      float: left;
+      text-align: center;
+      font-size: 80px;
     }
+  }
 }

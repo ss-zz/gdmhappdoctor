@@ -1,0 +1,30 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>详情</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+  <div *ngIf="!item" color-primary>
+    无信息
+  </div>
+
+  <ion-list *ngIf="item">
+    <ion-item no-lines>
+      <ion-label>姓名</ion-label>
+      <div item-content>
+        {{item.name}}
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label>时间</ion-label>
+      <div item-content>
+        {{item.time | date: 'yyyy-MM-dd HH:mm:ss'}}
+      </div>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

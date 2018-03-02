@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, IonicPage } from 'ionic-angular';
 import { UserServiceProvider } from '../../providers/biz/user-service';
-import { APP_SERVE_URL } from "../../providers/Constants";
 import { ZBar, ZBarOptions } from '@ionic-native/zbar';
 
 /**
@@ -17,7 +16,7 @@ export class UserCenterPage {
   // 用户信息
   user: any = {};
   // 是否登录
-  isLogin: Boolean = true;
+  isLogin: Boolean = false;
 
   constructor(
     public navCtrl: NavController,
@@ -33,7 +32,16 @@ export class UserCenterPage {
 
   // 刷新用户信息
   refreshUserInfo() {
-
+    // 用户是否登录
+    this.userService.isLogin().then(isLogin => {
+      this.isLogin = isLogin;
+      if (isLogin) {
+        // 登录用户信息
+        this.userService.getLoginInfo().then(userInfo => {
+          this.user = userInfo;
+        });
+      }
+    });
   }
 
   // 退出登录

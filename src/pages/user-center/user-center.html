@@ -1,83 +1,44 @@
 <ion-content class="bg-slight">
 
-  <ion-toolbar color="primary">
-    <ion-buttons start>
-      <button ion-button icon-only>
-        <ion-icon name="settings"></ion-icon>
-      </button>
-    </ion-buttons>
+  <!-- 已登录 -->
+  <ion-row *ngIf="isLogin" [navPush]="BaseInfoPage">
+    <ion-col col-3>
+      <img class="header-img" src="assets/img/rentou.png">
+    </ion-col>
+    <ion-col col-9>
+      用户名：{{user.loginName}}
+      <br/> {{user.role}}
+    </ion-col>
+  </ion-row>
 
-    <ion-title>我的</ion-title>
+  <!-- 未登录 -->
+  <ion-row *ngIf="!isLogin" [navPush]="LoginPage">
+    <ion-col col-3>
+      <img class="header-img" src="assets/img/rentou.png">
+    </ion-col>
+    <ion-col col-9>
+      <span margin-right [navPush]="'LoginPage'">登录</span>|
+      <img class="jiantou" src="assets/img/jiantou3.png">
+    </ion-col>
+  </ion-row>
 
-    <ion-buttons end>
-      <button ion-button icon-only>
-        <ion-icon name="more"></ion-icon>
-      </button>
-      <button ion-button icon-only>
-        <ion-icon name="chatbubbles"></ion-icon>
-      </button>
-    </ion-buttons>
-  </ion-toolbar>
-
-  <ion-grid class="maincorlor">
-    <ion-row>
-      <ion-col col-3>
-        <img class="header-img" src="assets/img/rentou.png">
-      </ion-col>
-      <ion-col col-9>
-        <h2 class="f18">
-          <span margin-right [navPush]="'LoginPage'">登录</span>|
-          <span margin-left [navPush]="'RegisterPage'">注册</span>
-          <img class="jiantou" src="assets/img/jiantou3.png">
-        </h2>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-  <ion-grid class="middarea">
-    <ion-row>
-      <ion-col text-center [navPush]="'BaseinfoPage'" [navParams]="{isFromReg: false}">
-        <ion-icon class="menu" name="ios-list-box-outline"></ion-icon>
-        <p>基础资料</p>
-      </ion-col>
-      <ion-col text-center (click)="zbarScan()">
-        <ion-icon class="menu" name="ios-qr-scanner-outline"></ion-icon>
-        <p>扫一扫</p>
-      </ion-col>
-      <ion-col text-center>
-        <ion-icon class="menu" name="ios-card-outline"></ion-icon>
-        <p>我的钱包</p>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
   <div class="line-spe"></div>
-  <ion-list no-lines>
-    <button ion-item>
-      <span item-start></span>常用信息
-      <ion-note item-end>
-        旅客/地址/报销凭证
-      </ion-note>
-    </button>
-    <button ion-item>
-      <span item-start></span>我的收藏
-      <ion-note item-end>
-        收藏后有变动及时通知
-      </ion-note>
-    </button>
-    <button ion-item>
-      <span item-start></span>浏览历史
-      <ion-note item-end>
-        保留15天随时可回看
-      </ion-note>
-    </button>
+
+  <ion-list>
+    <ion-item detail-push [navPush]="'DataOfflinePage'">
+      离线数据
+    </ion-item>
+    <ion-item detail-push [navPush]="'DataCachePage'">
+      缓存数据
+    </ion-item>
+    <ion-item detail-push [navPush]="'SetAccountPage'">
+      设定账号
+    </ion-item>
+    <ion-item detail-push [navPush]="'FeedBackPage'">
+      意见反馈
+    </ion-item>
+    <ion-item detail-push [navPush]="'SoftSetPage'">
+      设置
+    </ion-item>
   </ion-list>
-  <div class="line-spe"></div>
-  <ion-list no-lines>
-    <button ion-item>
-      <span item-start></span>出行工具
-      <ion-note item-end>
-        航班动态/翻译助手等
-      </ion-note>
-    </button>
-  </ion-list>
-  <div class="line-spe"></div>
 </ion-content>
